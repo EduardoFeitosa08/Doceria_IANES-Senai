@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Doceria IANES</title>
+</head>
+
+<body>
+    <section class="login">
+        <div class="card-login">
+            <h2>Login</h2>
+            <label for="email">Email:</label>
+            <input type="text" id="email">
+
+            <label for="senha">Senha:</label>
+            <input type="text" id="senha">
+
+            <button class="btn btn-login" id="btnLogin"> Entrar</button>
+        </div>
+    </section>
+    <section class="home">
+        <div class="header">
+            <h2>Doces Registrados</h2>
+            <div>
+                <button class="btn btn-cadastrar" id="btnCadastrar">Cadastrar</button>
+                <button class="btn btn-registro" id="btnRegistro">Registro</button>
+            </div>
+        </div>
+        <div class="tabela-produtos">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Recheio</th>
+                        <th>Cobertura</th>
+                        <th>Massa</th>
+                        <th>Peso</th>
+                        <th>Nº Porções</th>
+                        <th>Data de Vencimento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Bolo de Pote</td>
+                        <td>Ninho com Nutella</td>
+                        <td>Ganache de Chocolate</td>
+                        <td>Pó de Ló de Chocolate</td>
+                        <td>250g</td>
+                        <td>1</td>
+                        <td>30/05/2026</td>
+                        <td class="actions-cell">
+                            <button class="btn btn-editar" id="btnEditar">Editar</button>
+                            <button class="btn btn-excluir" id="btnExcluir">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <section class="registro-produtos">
+        <div class="header">
+            <h2>Histórico de Doces Excluídos</h2>
+            <button class="btn btn-registro" id="btnRegistro">Voltar</button>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Email</th>
+                    <th>ID Prod.</th>
+                    <th>Nome do Produto</th>
+                    <th>Recheio</th>
+                    <th>Cobertura</th>
+                    <th>Massa</th>
+                    <th>Peso</th>
+                    <th>Nº Porções</th>
+                    <th>Vencimento</th>
+                    <th>Data Cadastro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>usuario@email.com</td>
+                    <td>105</td>
+                    <td>Bolo de Chocolate</td>
+                    <td>Prestígio</td>
+                    <td>Granulado</td>
+                    <td>Chocolate</td>
+                    <td>1kg</td>
+                    <td>8</td>
+                    <td>15/06/2026</td>
+                    <td>10/05/2026</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>
