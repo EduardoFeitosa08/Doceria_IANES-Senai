@@ -5,11 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
+    <script type="module" src="./index.js" defer></script>
     <title>Doceria IANES</title>
 </head>
 
 <body>
-    <section class="login">
+    <section class="login" id="login">
         <div class="card-login">
             <h2>Login</h2>
             <label for="email">Email:</label>
@@ -21,16 +22,17 @@
             <button class="btn btn-login" id="btnLogin"> Entrar</button>
         </div>
     </section>
-    <section class="home">
+
+    <section class="home" id="home" style="display: none;">
         <div class="header">
             <h2>Doces Registrados</h2>
             <div>
                 <button class="btn btn-cadastrar" id="btnCadastrar">Cadastrar</button>
-                <button class="btn btn-registro" id="btnRegistro">Registro</button>
+                <button class="btn btn-registro" id="btnRegistro">Histórico</button>
             </div>
         </div>
         <div class="tabela-produtos">
-            <table>
+            <table id="tabela-bolos">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -40,30 +42,19 @@
                         <th>Peso</th>
                         <th>Nº Porções</th>
                         <th>Data de Vencimento</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>Bolo de Pote</td>
-                        <td>Ninho com Nutella</td>
-                        <td>Ganache de Chocolate</td>
-                        <td>Pó de Ló de Chocolate</td>
-                        <td>250g</td>
-                        <td>1</td>
-                        <td>30/05/2026</td>
-                        <td class="actions-cell">
-                            <button class="btn btn-editar" id="btnEditar">Editar</button>
-                            <button class="btn btn-excluir" id="btnExcluir">Excluir</button>
-                        </td>
-                    </tr>
-                </tbody>
+                <tbody id="corpo-tabela">
+                    </tbody>
             </table>
         </div>
     </section>
-    <section class="registro-produtos">
+
+    <section class="registro-produtos" id="registroProdutos" style="display: none;">
         <div class="header">
             <h2>Histórico de Doces Excluídos</h2>
-            <button class="btn btn-registro" id="btnRegistro">Voltar</button>
+            <button class="btn btn-registro" id="btnVoltar">Voltar</button>
         </div>
 
         <table>
@@ -79,26 +70,54 @@
                     <th>Peso</th>
                     <th>Nº Porções</th>
                     <th>Vencimento</th>
-                    <th>Data Cadastro</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>usuario@email.com</td>
-                    <td>105</td>
-                    <td>Bolo de Chocolate</td>
-                    <td>Prestígio</td>
-                    <td>Granulado</td>
-                    <td>Chocolate</td>
-                    <td>1kg</td>
-                    <td>8</td>
-                    <td>15/06/2026</td>
-                    <td>10/05/2026</td>
-                </tr>
+            <tbody id="corpo-tabela-excluidos">
             </tbody>
         </table>
     </section>
+
+    <div id="modalProduto" class="modal" style="display: none;">
+        <div class="modal-content">
+            <h2 id="modalTitulo">Editar Doce</h2>
+            
+            <input type="hidden" id="doceId">
+            
+            <div class="form-group">
+                <label for="formNome">Nome:</label>
+                <input type="text" id="formNome">
+            </div>
+            <div class="form-group">
+                <label for="formRecheio">Recheio:</label>
+                <input type="text" id="formRecheio">
+            </div>
+            <div class="form-group">
+                <label for="formCobertura">Cobertura:</label>
+                <input type="text" id="formCobertura">
+            </div>
+            <div class="form-group">
+                <label for="formMassa">Massa:</label>
+                <input type="text" id="formMassa">
+            </div>
+            <div class="form-group">
+                <label for="formPeso">Peso:</label>
+                <input type="text" id="formPeso">
+            </div>
+            <div class="form-group">
+                <label for="formPorcoes">Nº Porções:</label>
+                <input type="number" id="formPorcoes">
+            </div>
+            <div class="form-group">
+                <label for="formVencimento">Vencimento:</label>
+                <input type="date" id="formVencimento">
+            </div>
+            
+            <div class="modal-actions">
+                <button class="btn btn-salvar" id="btnSalvar">Salvar</button>
+                <button class="btn btn-cancelar" id="btnFecharModal">Cancelar</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

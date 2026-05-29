@@ -64,17 +64,18 @@ const inserirUsuario = async (usuario, contentType) => {
 }
 
 const loginUsuario = async (dadosLogin) => {
+    let MESSAGE = JSON.parse(JSON.stringify(MESSAGE_DEFAULT))
     try {
         const usuario = await usuario_model.setValidacionLogin(dadosLogin.email)
-        
-        if(usuario.senha = dadosLogin.senha){
-            MESSAGE.REQUEST_SUCESS.result = result
+        console.log(usuario)
+        if (usuario.senha == dadosLogin.senha) {
+            MESSAGE.REQUEST_SUCESS.result = usuario
             return MESSAGE.REQUEST_SUCESS
-        }else{
+        } else {
             console.log("Login Falhou")
             return false
         }
-    }catch(error){
+    } catch (error) {
         return false
     }
 }
@@ -94,8 +95,8 @@ function validarDados(usuario) {
         typeof usuario.email !== "string" || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(usuario.email) ||
         typeof usuario.senha !== "string" || usuario.senha.length < 6
     ) {
-       return false
-    }else{
+        return false
+    } else {
         return true
     }
 

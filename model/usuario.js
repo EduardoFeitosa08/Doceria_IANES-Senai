@@ -1,10 +1,10 @@
 const knex = require('knex')
 const database = require("../database.js")
 
-const getSelectAllUsers = async function() {
+const getSelectAllUsers = async function () {
     try {
         const result = await database('tbl_usuario').orderBy('id')
-        if(result.length > 0)
+        if (result.length > 0)
             return result
         else
             return false
@@ -13,14 +13,14 @@ const getSelectAllUsers = async function() {
     }
 }
 
-const setInsertUser = async function(usuario) {
+const setInsertUser = async function (usuario) {
     try {
         const result = await database('tbl_usuario').insert({
             email: usuario.email,
             senha: usuario.senha
         })
 
-        if(result)
+        if (result)
             return result
         else
             return false
@@ -29,14 +29,14 @@ const setInsertUser = async function(usuario) {
     }
 }
 
-const setValidacionLogin = async function (email, senha) {
- 
-   try {
+const setValidacionLogin = async function (email) {
+
+    try {
         let result = await database('tbl_usuario')
             .where('email', email)
             .first();
 
-        if(result)
+        if (result)
             return result
         else
             return false
@@ -45,13 +45,13 @@ const setValidacionLogin = async function (email, senha) {
     }
 }
 
-const setUpdateUser = async function(usuario) {
+const setUpdateUser = async function (usuario) {
     try {
         const result = await database('tbl_usuario').where('id', usuario.id).update({
             email: usuario.email,
             senha: usuario.senha
         })
-        if(result > 0)
+        if (result > 0)
             return result
         else
             return false
@@ -60,10 +60,10 @@ const setUpdateUser = async function(usuario) {
     }
 }
 
-const setDeleteUser = async function(id) {
+const setDeleteUser = async function (id) {
     try {
         const result = await database('tbl_usuario').where('id', id).del()
-        if(result > 0)
+        if (result > 0)
             return result
         else
             return false

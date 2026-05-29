@@ -7,12 +7,13 @@
 body {
     height: 100vh;
     width: 100%;
+    font-family: Arial, sans-serif;
 }
 
 .login {
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -43,7 +44,6 @@ body {
     border: 1px solid black;
 }
 
-
 .home {
     display: none;
     flex-direction: column;
@@ -55,11 +55,12 @@ body {
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-inline: 5vw;
     padding-top: 5vh;
 }
 
-.tabela-produtos{
+.tabela-produtos {
     padding-inline: 5vw;
 }
 
@@ -69,8 +70,9 @@ body {
     font-weight: bold;
     border-color: transparent;
     border-radius: 5px;
-    padding-inline: 10px;
-    padding-block: 5px;
+    padding-inline: 15px;
+    padding-block: 8px;
+    cursor: pointer;
     transition: .2s;
 }
 
@@ -78,6 +80,13 @@ body {
     background-color: #bd03c4;
 }
 
+.btn-cancelar {
+    background-color: #6e6e6e;
+}
+
+.btn-cancelar:hover {
+    background-color: #4b4b4b;
+}
 
 .table-container {
     width: 100%;
@@ -92,8 +101,7 @@ table {
     border-collapse: collapse;
 }
 
-th,
-td {
+th, td {
     border: 1px solid #ddd;
     padding: 10px;
     text-align: center;
@@ -128,20 +136,20 @@ tr:hover .actions-cell .btn {
 }
 
 td:last-child {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  border-color: transparent; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    border-color: transparent; 
 }
 
 tr:hover td:last-child {
-  opacity: 1;
-  visibility: visible;
-  border-color: #ddd;
+    opacity: 1;
+    visibility: visible;
+    border-color: #ddd;
 }
 
 .registro-produtos {
-    display: flex;
+    display: none;
     flex-direction: column;
     width: 100%;
     height: 100%;
@@ -149,28 +157,93 @@ tr:hover td:last-child {
 }
 
 .registro-produtos td {
-  opacity: 1 !important;
-  visibility: visible !important;
-  border: 1px solid #ddd !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    border: 1px solid #ddd !important;
 }
 
 .registro-produtos th {
-  background-color: #f83bff !important;
-  color: white !important;
-  font-weight: bold;
-  padding: 12px;
-  border: 1px solid #ddd;
+    background-color: #f83bff !important;
+    color: white !important;
+    font-weight: bold;
+    padding: 12px;
+    border: 1px solid #ddd;
 }
 
 .registro-produtos td {
-  padding: 12px;
-  text-align: center;
+    padding: 12px;
+    text-align: center;
 }
 
 .registro-produtos tr:nth-child(even) {
-  background-color: #f9f9f9;
+    background-color: #f9f9f9;
 }
 
 .registro-produtos tr:hover {
-  background-color: #f1f2f6;
+    background-color: #f1f2f6;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.modal-content h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #444;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #f83bff;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 15px;
 }
